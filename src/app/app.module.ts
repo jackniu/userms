@@ -17,6 +17,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { UserService } from './services/user.service';
+
 const appRoutes:Routes = [
   {path:"", component:HomeComponent},
   {path:"login", component:LoginComponent},
@@ -43,7 +45,7 @@ const appRoutes:Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

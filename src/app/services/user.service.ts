@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Observable, pipe, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../models/User';
 
 @Injectable()
 export class UserService {
-  users: [];
+  private url = 'http://localhost:3000';
+
+  // users: [];
   constructor(
-    public http:HttpClientModule
+    public http:HttpClient
   ) { }
 
   // getUsers() {
   //   return this.http.get("http://localhost:3000/users")
   //     .map(res => res.json());
   // }
-  getUsers(): Observable<users[]> {
-    return this.http.get<users[]>("http://localhost:3000/users").pipe(map(
-      res=>res.json()
-    ))
+
+  getUsers (): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/users`).pipe(
+      
+    );
   }
 }

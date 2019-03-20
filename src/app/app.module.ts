@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
 
 import { UserService } from './services/user.service';
 
@@ -43,6 +45,7 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [UserService],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/User'
 
 @Component({
@@ -9,8 +9,8 @@ import { User } from '../../models/User'
 })
 export class UsersComponent implements OnInit {
 
-  users: User[];
-  // users = [];
+  users: any;
+  totalOwned: number;
 
   constructor(
     public userService:UserService
@@ -19,8 +19,19 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.userService.getUsers().subscribe(users =>{
       this.users = users;
-      console.log(this.users);      
+      this.getTotalOwned();
+      // console.log(this.totalOwned); 
+
     })
+  }
+
+  getTotalOwned() {
+    let total = 0;
+    for (let i=0; i< this.users.length; i++) {
+      total += parseFloat(this.users[i].balance);
+    }
+
+    this.totalOwned = total;
   }
 
 }

@@ -20,4 +20,8 @@ export class UserService {
   getUsers (): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/users`);
   }
+
+  newUser(user:User) {
+    return this.http.post<User[]>(`${this.url}/users`,user);
+  }
 }

@@ -17,11 +17,15 @@ export class UserService {
   //     .map(res => res.json());
   // }
 
-  getUsers (): Observable<User[]> {
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/users`);
   }
 
   newUser(user:User) {
     return this.http.post<User[]>(`${this.url}/users`,user);
+  }
+
+  getUser(id:string) {
+    return this.http.get(`${this.url}/users/${id}`);
   }
 }

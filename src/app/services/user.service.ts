@@ -28,4 +28,8 @@ export class UserService {
   getUser(id:string) {
     return this.http.get(`${this.url}/users/${id}`);
   }
+
+  updateUser(id,user) {
+    return this.http.put(`${this.url}/users/${id}`,user);
+  }
 }

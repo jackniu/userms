@@ -22,6 +22,21 @@
         <h4>User ID: {{id}}</h4>
       </div>
       <div class="col-md-4">
+        <!-- Balance -->
+        <h3 class="pull-right">
+          <span [ngClass]="hasBalance ? 'text-danger' : 'text-success'">{{ user.balance }}元</span>
+          <small>
+            <a (click)="showBalanceUpdateInput=!showBalanceUpdateInput">
+              <i class="fa fa-pencil"></i>
+            </a>
+          </small>
+        </h3>
+        <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)" class="form-inline pull-right">
+          <div class="form-group">
+            <input type="text" class="form-control" name="balance" [(ngModel)]="user.balance">
+          </div>
+          <button class="btn btn-primary" type="submit">Update</button>
+        </form>
       </div>
     </div>
   </div>

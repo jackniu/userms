@@ -25,11 +25,15 @@ export class UserService {
     return this.http.post<User[]>(`${this.url}/users`,user);
   }
 
-  getUser(id:string) {
+  getUser(id:string): any {
     return this.http.get(`${this.url}/users/${id}`);
   }
 
   updateUser(id,user) {
     return this.http.put(`${this.url}/users/${id}`,user);
+  }
+
+  deleteUser(id) {
+    return this.http.delete(`${this.url}/users/${id}`);
   }
 }

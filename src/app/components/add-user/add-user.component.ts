@@ -19,6 +19,7 @@ export class AddUserComponent implements OnInit {
   }
 
   disableBalanceOnAdd:boolean = true;
+  
   constructor(
     public flashMessagesService:FlashMessagesService,
     public router:Router,

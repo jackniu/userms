@@ -28,7 +28,8 @@ const appRoutes:Routes = [
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"add-user", component:AddUserComponent},
-  {path:"user/:id", component:UserDetailComponent}
+  {path:"user/:id", component:UserDetailComponent},
+  {path:"edit-user/:id", component:EditUserComponent}
 ]
 
 @NgModule({

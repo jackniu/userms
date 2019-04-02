@@ -7,8 +7,8 @@
   </div>
   <div class="col-md-6">
     <div class="btn-group pull-right">
-      <a href="#" class="btn btn-secondary">Edit</a>
-      <button class="btn btn-danger">Delete</button>
+      <a [routerLink]="'/edit-user/'+id" class="btn btn-secondary">Edit</a>
+      <button type="button" (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@
         </h3>
         <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)" class="form-inline pull-right">
           <div class="form-group">
-            <input type="text" class="form-control" name="balance" [(ngModel)]="user.balance">
+            <input type="number" class="form-control" name="balance" [(ngModel)]="user.balance">
           </div>
           <button class="btn btn-primary" type="submit">Update</button>
         </form>
